@@ -1,116 +1,144 @@
-.grid{
+
+.main{
   display: grid;
-  grid-template-columns: repeat(12, 1fr); 
-  gap: 8px; 
+  grid-template-columns: 1fr; /* Una sola columna que ocupa el ancho completo */
+  gap: 10px;
 }
 
-[class*="col-"] {
-  padding: 8px;
-  border: 1px solid #ccc;
+.row {
+  display: contents; /* Esta propiedad hace que el contenedor no genere una caja, y sus hijos se colocan directamente en el Grid principal. */
+}
+
+.row > div {
+  grid-column: 1 / -1; /* Cada div ocupa el ancho completo de la única columna del grid. */
+  border: 1px solid #000;
   text-align: center;
+  padding: 10px;
+  background-color: lightgray; /* Color de fondo base para todos los divs */
+  margin-bottom: 5px;
+  box-sizing: border-box;
 }
 
-.flex{
-  display: block;
-  width: 100%;
-}
+.div1{background-color: blue; text-align: center}
+.div2{background-color: blue; text-align: center} 
+.div3{background-color: blue; text-align: center}
+.div4{background-color: green; text-align: center}
+.div5{background-color: green; text-align: center} 
+.div6{background-color: red; text-align: center}
+.div7{background-color: pink; text-align: center}
+.div8{background-color: yellow; text-align: center}
 
 
-.row{
-  display:flex;
-  flex-wrap: wrap;
-  background:greenyellow;
+/*TABLET*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   
+.main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+}
+.div1 {
+    grid-column: span 4 / span 4;
 }
 
-.grid{
-  background:greenyellow;
+.div2 {
+    grid-column: span 4 / span 4;
+    grid-column-start: 5;
 }
-.grid *,
-.flex .row * {
-  background: pink;
-  border: 1px solid #000000;
-  margin-top: 10px;
+
+.div3 {
+    grid-column: span 4 / span 4;
+    grid-column-start: 9;
 }
-/*Establecer Grid*/
-.flex .columns-12 {
-  flex: 0 0 calc((100% / 12) * 12);
+
+.div4 {
+    grid-column: span 12 / span 12;
+    grid-row-start: 2;
 }
-.flex .columns-11 {
-  flex: 0 0 calc((100% / 12) * 11);
+
+.div5 {
+    grid-column: span 12 / span 12;
+    grid-row-start: 3;
 }
-.flex  .columns-10 {
-  flex: 0 0 calc((100% / 12) * 10);
+
+.div6 {
+    grid-column: span 2 / span 2;
+    grid-row-start: 4;
 }
-.flex  .columns-9 {
-  flex: 0 0 calc((100% / 12) * 9);
+
+.div7 {
+    grid-column: span 7 / span 7;
+    grid-column-start: 3;
+    grid-row-start: 4;
 }
-.flex  .columns-8 {
-  flex: 0 0 calc((100% / 12) * 8);
-}
-.flex  .columns-7 {
-  flex: 0 0 calc((100% / 12) * 7);
-}
-.flex  .columns-6 {
-  flex: 0 0 calc((100% / 12) * 6);
-}
-.flex  .columns-5 {
-  flex: 0 0 calc((100% / 12) * 5);
-}
-.flex  .columns-4 {
-  flex: 0 0 calc((100% / 12) * 4);
-}
-.flex  .columns-3 {
-  flex: 0 0 calc((100% / 12) * 3);
-}
-.flex  .columns-2 {
-  flex: 0 0 calc((100% / 12) * 2);
-}
-.flex  .columns-1 {
-  flex: 0 0 calc((100% / 12) * 1);
+
+.div8 {
+    grid-column: span 3 / span 3;
+    grid-column-start: 10;
+    grid-row-start: 4;
+}    
+
 }
 
 
-
-/*Completar*/
-@media screen and (min-width: 768px){
-  .grid .columns-12 {
-    grid-column: span 12; 
-  }
-  .grid .columns-11 {
-    grid-column: span 11;
-  }
-  .grid  .columns-10 {
-    grid-column: span 10;
-  }
-  .grid  .columns-9 {
-    grid-column: span 9;
-  }
-  .grid  .columns-8 {
-    grid-column: span 8;
-  }
-  .grid  .columns-7 {
-    grid-column: span 7;
-  }
-  .grid .columns-6 {
-    grid-column: span 6;
-  }
-  .grid  .columns-5 {
-    grid-column: span 5;
-  }
-  .grid .columns-4 {
-    grid-column: span 4;
-  }
-  .grid .columns-3 {
-    grid-column: span 3;
-  }
-  .grid .columns-2 {
-    grid-column: span 2;
-  }
-  .grid .columns-1 {
-    grid-column: span 1;
-  } 
+/*COMPUTADORAS*/
+@media only screen and (min-width: 1025px) {
+  
+.main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
 }
-.grid * {
-  grid-column: span 12;
+    .div1 {
+    grid-column: span 3 / span 3;
+    
+}
+
+.div2 {
+    grid-column: span 3 / span 3;
+    grid-column-start: 4;
+    
+}
+
+.div3 {
+    grid-column: span 6 / span 6;
+    grid-column-start: 7;
+   
+}
+
+.div4 {
+    grid-column: span 6 / span 6;
+    grid-row-start: 2;
+   
+}
+
+.div5 {
+    grid-column: span 6 / span 6;
+    grid-column-start: 7;
+    grid-row-start: 2;
+   
+}
+
+.div6 {
+    grid-column: span 8 / span 8;
+    grid-row-start: 3;
+   
+}
+
+.div7 {
+    grid-column: span 4 / span 4;
+    grid-column-start: 9;
+    grid-row-start: 3;
+   
+}
+
+.div8 {
+    grid-column: span 12 / span 12;
+    grid-row-start: 4;
+   
+}
+
+        
 }
